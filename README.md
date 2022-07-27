@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # app_2
+=======
+# restaurante
+>>>>>>> c51600797c2fda7a9e9880e1ca99ac5e35853ae0
 
 A new Flutter project.
 

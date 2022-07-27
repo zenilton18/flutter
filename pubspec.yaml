@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 name: app_2
+=======
+name: restaurante
+>>>>>>> c51600797c2fda7a9e9880e1ca99ac5e35853ae0
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -58,8 +62,13 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
+<<<<<<< HEAD
   assets:
     - images/res.jpg
+=======
+  # assets:
+  #   - images/a_dot_burr.jpeg
+>>>>>>> c51600797c2fda7a9e9880e1ca99ac5e35853ae0
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
