@@ -1,6 +1,5 @@
 // ignore_for_file: unused_element
 
-import 'package:app_2/controller.dart';
 import 'package:flutter/material.dart';
 
 
@@ -21,15 +20,14 @@ class _HomepageState extends State<Homepage> {
         title: Text('hodddddme'),
       ),
       body: Center(
-        child: Text('deissssso $cont '),
+        child: Text('deissssso ss$cont '),
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
           setState(() {
-             cont++;
+            cont++;
           });
-         
         },
       ),
     );
