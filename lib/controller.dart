@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 class controller extends InheritedWidget {
-   controller({Key? key, required Widget child})
+  controller({Key? key, required Widget child})
       : super(
           key: key,
           child: child,

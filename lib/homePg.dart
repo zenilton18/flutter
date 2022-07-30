@@ -1,7 +1,4 @@
-// ignore_for_file: unused_element
-
 import 'package:flutter/material.dart';
-
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -20,7 +17,7 @@ class _HomepageState extends State<Homepage> {
         title: Text('home'),
       ),
       body: Center(
-        child: Text('deissssso ss$cont '),
+        child: Text('contador $cont '),
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
