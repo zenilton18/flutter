@@ -17,38 +17,52 @@ class _HomepageState extends State<Homepage> {
       appBar: AppBar(
         title: Text('home'),
       ),
-      body: Column(children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              Expanded(
-                  child: TextField(
-                controller: controle,
-              )),
-              IconButton(
-                  onPressed: () {
-                    final texto = controle.text;
-                    setState(() {
-                      lista.add(texto);
-                    });
-                    controle.clear();
-                  },
-                  icon: Icon(Icons.add))
-            ],
+      body: Stack(
+        children: [
+          SizedBox(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.height,
+            child: Image.asset(
+              'assets/img/teste.jpg',
+              fit: BoxFit.cover,
+            ),
+           
+
           ),
-        ),
-        Expanded(
-          child: ListView.builder(
-              itemCount: lista.length,
-              itemBuilder: (context, index) {
-                final list = lista[index];
-                return ListTile(
-                  title: Text(list),
-                );
-              }),
-        ),
-      ]),
+           Column(
+          children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                Expanded(
+                    child: TextField(
+                  controller: controle,
+                )),
+                IconButton(
+                    onPressed: () {
+                      final texto = controle.text;
+                      setState(() {
+                        lista.add(texto);
+                      });
+                      controle.clear();
+                    },
+                    icon: Icon(Icons.add))
+              ],
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+                itemCount: lista.length,
+                itemBuilder: (context, index) {
+                  final list = lista[index];
+                  return ListTile(
+                    title: Text(list),
+                  );
+                }),
+          ),
+        ]),],
+      ),
     );
   }
 }
