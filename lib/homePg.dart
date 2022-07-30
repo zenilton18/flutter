@@ -8,7 +8,8 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  var cont = 0;
+  final controle = TextEditingController();
+  final lista = <String>[];
 
   @override
   Widget build(BuildContext context) {
@@ -16,17 +17,38 @@ class _HomepageState extends State<Homepage> {
       appBar: AppBar(
         title: Text('home'),
       ),
-      body: Center(
-        child: Text('contador $cont '),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () {
-          setState(() {
-            cont++;
-          });
-        },
-      ),
+      body: Column(children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            children: [
+              Expanded(
+                  child: TextField(
+                controller: controle,
+              )),
+              IconButton(
+                  onPressed: () {
+                    final texto = controle.text;
+                    setState(() {
+                      lista.add(texto);
+                    });
+                    controle.clear();
+                  },
+                  icon: Icon(Icons.add))
+            ],
+          ),
+        ),
+        Expanded(
+          child: ListView.builder(
+              itemCount: lista.length,
+              itemBuilder: (context, index) {
+                final list = lista[index];
+                return ListTile(
+                  title: Text(list),
+                );
+              }),
+        ),
+      ]),
     );
   }
 }

@@ -1,6 +1,7 @@
+import 'package:app_1/homePg.dart';
 import 'package:flutter/material.dart';
 
-import 'home_page.dart';
+import 'homePg.dart';
 
 class Myapp extends StatelessWidget {
   const Myapp({Key? key}) : super(key: key);
@@ -8,7 +9,7 @@ class Myapp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: HomePage(),
+      home: Homepage(),
     );
   }
 }
