@@ -1,6 +1,22 @@
-import 'package:flutter/material.dart';
-import 'myapp.dart';
 
-void main() {
-  runApp(const Myapp());
+import 'package:flutter/material.dart';
+
+import 'src/auth/sing_in_screan.dart';
+
+void main() => runApp(const Myapp());
+
+class Myapp extends StatelessWidget {
+  const Myapp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "meu app",
+      theme: ThemeData(
+        primarySwatch: Colors.green
+        ),
+      home: const SingInScrean(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
 }
