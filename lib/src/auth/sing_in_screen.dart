@@ -3,7 +3,7 @@ import 'package:app_1/src/auth/sing_up_screen.dart';
 import 'package:app_1/src/config/custom_colors.dart';
 import 'package:flutter/material.dart';
 
-import 'components/coustom_text_field.dart';
+import 'components/custom_text_field.dart';
 
 class SingInScreen extends StatelessWidget {
   const SingInScreen({Key? key}) : super(key: key);
@@ -78,12 +78,12 @@ class SingInScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       //email
-                      const CostumTextField(
+                      const CustumTextField(
                         icon: Icons.email,
                         label: 'Email',
                       ),
                       //senha
-                      const CostumTextField(
+                      const CustumTextField(
                         icon: Icons.lock,
                         label: 'Senha',
                         isSecret: true,
