@@ -1,11 +1,12 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:app_1/src/auth/sing_up_screen.dart';
 import 'package:app_1/src/config/custom_colors.dart';
 import 'package:flutter/material.dart';
 
 import 'components/coustom_text_field.dart';
 
-class SingInScrean extends StatelessWidget {
-  const SingInScrean({Key? key}) : super(key: key);
+class SingInScreen extends StatelessWidget {
+  const SingInScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -140,7 +141,7 @@ class SingInScrean extends StatelessWidget {
                           ],
                         ),
                       ),
-                      //novo usuario
+                      // botão novo usuario
                       SizedBox(
                         height: 50,
                         child: OutlinedButton(
@@ -151,7 +152,13 @@ class SingInScrean extends StatelessWidget {
                             side:
                                 const BorderSide(width: 2, color: Colors.green),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(builder: (c) {
+                                return SingUpScreen();
+                              }),
+                            );
+                          },
                           child: const Text(
                             "Criar Conta",
                             style: TextStyle(fontSize: 18),
