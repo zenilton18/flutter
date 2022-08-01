@@ -1,10 +1,20 @@
 import 'package:app_1/src/config/custom_colors.dart';
+import 'package:app_1/src/pages/home/components/item_tile.dart';
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 
-class HomeTab extends StatelessWidget {
- HomeTab({Key? key}) : super(key: key);
-  List<String> categorias=[];
+import 'components/category_tile.dart';
+import 'package:app_1/src/config/app_data.dart' as appData;
+
+class HomeTab extends StatefulWidget {
+  const HomeTab({Key? key}) : super(key: key);
+
+  @override
+  State<HomeTab> createState() => _HomeTabState();
+}
+
+class _HomeTabState extends State<HomeTab> {
+  String selectcategoria = 'Frutas';
 
   @override
   Widget build(BuildContext context) {
@@ -97,9 +107,49 @@ class HomeTab extends StatelessWidget {
           ),
 
           //categorias
-          
+          Container(
+            padding: const EdgeInsets.only(left: 25),
+            height: 40,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (_, index) {
+                return CategoryTile(
+                  onPressed: () {
+                    setState(() {
+                      selectcategoria = appData.categorias[index];
+                    });
+                  },
+                  category: appData.categorias[index],
+                  isSelected: appData.categorias[index] == selectcategoria,
+                );
+              },
+              separatorBuilder: (_, index) => const SizedBox(
+                width: 10,
+              ),
+              itemCount: appData.categorias.length,
+            ),
+          ),
 
           //grid
+
+          Expanded(
+            child: GridView.builder(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+              physics: const BouncingScrollPhysics(),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 10,
+                crossAxisSpacing: 10,
+                childAspectRatio: 9 / 11.5,
+              ),
+              itemCount: appData.items.length,
+              itemBuilder: (_, index) {
+                return Itemtile(
+                  item: appData.items[index],
+                );
+              },
+            ),
+          ),
         ],
       ),
     );
