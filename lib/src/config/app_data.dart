@@ -5,7 +5,8 @@ ItemModel aplle = ItemModel(
   imgUrl: 'assets/fruits/apple.png',
   unit: 'kg',
   price: 5.5,
-  description: 'melhor mça do mundo vermelhinha com o melhor preço ',
+  description:
+      'melhor mça do mundo vermelhinha com o melhor preço  melhor mça do mundo vermelhinha com o melhor preço melhor mça do mundo vermelhinha com o melhor preço',
 );
 ItemModel grape = ItemModel(
   itemName: 'uva',
@@ -51,10 +52,10 @@ List<ItemModel> items = [
   papaya,
   manga,
 ];
- List<String> categorias = [
-    'Frutas',
-    'Legumes',
-    'Verduras',
-    'Temperos',
-    'Cerais',
-  ];
+List<String> categorias = [
+  'Frutas',
+  'Legumes',
+  'Verduras',
+  'Temperos',
+  'Cerais',
+];
