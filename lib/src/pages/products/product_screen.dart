@@ -1,4 +1,5 @@
 import 'package:app_1/src/config/custom_colors.dart';
+import 'package:app_1/src/pages/common_widget/quantity_widget.dart';
 import 'package:app_1/src/services/utils_services.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class ProductScreen extends StatelessWidget {
         children: [
           Column(
             children: [
-              //imagem 
+              //imagem
               Hero(
                 tag: items.imgUrl,
                 child: Expanded(
@@ -57,11 +58,7 @@ class ProductScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Container(
-                            width: 70,
-                            height: 30,
-                            color: Colors.red,
-                          )
+                          const QuantityWidget(),
                         ],
                       ),
 
@@ -118,17 +115,17 @@ class ProductScreen extends StatelessWidget {
             ],
           ),
           Positioned(
-            left: 10,
-            top: 10,
+              left: 10,
+              top: 10,
               child: SafeArea(
-            child: IconButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              color: Colors.black,
-              icon: Icon(Icons.arrow_back_ios),
-            ),
-          ))
+                child: IconButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  color: Colors.black,
+                  icon: const Icon(Icons.arrow_back_ios),
+                ),
+              ))
         ],
       ),
     );

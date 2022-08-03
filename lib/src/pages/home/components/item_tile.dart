@@ -85,7 +85,7 @@ class Itemtile extends StatelessWidget {
           right: 4,
           child: GestureDetector(
             onTap: () {
-              print('clicou');
+              
             },
             child: Container(
               width: 35,
