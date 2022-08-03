@@ -2,7 +2,10 @@ import 'package:app_1/src/config/custom_colors.dart';
 import 'package:flutter/material.dart';
 
 class QuantityWidget extends StatelessWidget {
-  const QuantityWidget({Key? key}) : super(key: key);
+  final int value;
+  final String tipo;
+  const QuantityWidget({Key? key, required this.tipo, required this.value})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +28,13 @@ class QuantityWidget extends StatelessWidget {
             color: Colors.grey,
             icon: Icons.remove,
             voidCallback: () {},
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 6),
+            child: Text(
+              '$value$tipo',
+              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+            ),
           ),
           _QuantityWidget(
             color: Customcolors.customSwatchColor,

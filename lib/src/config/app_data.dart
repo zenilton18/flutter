@@ -18,7 +18,7 @@ ItemModel grape = ItemModel(
 ItemModel guava = ItemModel(
   itemName: 'goiba',
   imgUrl: 'assets/fruits/guava.png',
-  unit: 'kg',
+  unit: 'unit',
   price: 7.5,
   description: 'melhor goiba do mundo vermelhinha com o melhor preço ',
 );

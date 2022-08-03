@@ -58,7 +58,10 @@ class ProductScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          const QuantityWidget(),
+                          QuantityWidget(
+                            value: 3,
+                            tipo: items.unit,
+                          ),
                         ],
                       ),
 
