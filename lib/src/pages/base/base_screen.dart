@@ -1,3 +1,4 @@
+import 'package:app_1/src/pages/carrinho/carrinho.dart';
 import 'package:flutter/material.dart';
 
 import '../home/home_tab.dart';
@@ -21,7 +22,7 @@ class _BaseScreenState extends State<BaseScreen> {
         controller: pageController,
         children: [
           const HomeTab(),
-          Container(color: Colors.red),
+          Carrinho(),
           Container(color: Colors.yellow),
           Container(color: Colors.grey),
         ],

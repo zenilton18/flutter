@@ -1,3 +1,4 @@
+import 'package:app_1/src/config/items_carrinho.dart';
 import 'package:app_1/src/models/item_model.dart';
 
 ItemModel aplle = ItemModel(
@@ -58,4 +59,10 @@ List<String> categorias = [
   'Verduras',
   'Temperos',
   'Cerais',
+];
+
+List<ItemCarrinho> itemscarrinho = [
+  ItemCarrinho(item: aplle, quantidade: 2),
+  ItemCarrinho(item: grape, quantidade: 2),
+  ItemCarrinho(item: guava, quantidade: 2),
 ];
