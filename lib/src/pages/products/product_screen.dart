@@ -1,4 +1,23 @@
+import 'package:app_1/src/config/custom_colors.dart';
+import 'package:app_1/src/pages/common_widget/quantity_widget.dart';
+import 'package:app_1/src/services/utils_services.dart';
+import 'package:flutter/material.dart';
 
+import '../../models/item_model.dart';
+
+class ProductScreen extends StatelessWidget {
+  ProductScreen({Key? key, required this.items}) : super(key: key);
+
+  final ItemModel items;
+  final UtilsServices utilsServices = UtilsServices();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white.withAlpha(230),
+      body: Stack(
+        children: [
+          Column(
             children: [
               //imagem
               Hero(
