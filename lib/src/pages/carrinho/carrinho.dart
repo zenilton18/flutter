@@ -1,39 +1,4 @@
-import 'package:app_1/src/config/custom_colors.dart';
-import 'package:app_1/src/services/utils_services.dart';
-import 'package:flutter/material.dart';
-import 'package:app_1/src/config/app_data.dart' as carrinho;
 
-class Carrinho extends StatelessWidget {
-  Carrinho({Key? key}) : super(key: key);
-
-  final UtilsServices utilsServices = UtilsServices();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('carrinho'),
-      ),
-      body: Column(
-        // crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: carrinho.itemscarrinho.length,
-              itemBuilder: (_, index) {
-                return Text(carrinho.itemscarrinho[index].item.itemName);
-              },
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.all(16),
-            height: 153,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: const BorderRadius.vertical(
-                top: Radius.circular(30),
-              ),
-              boxShadow: [
                 BoxShadow(
                   color: Colors.grey.shade300,
                   blurRadius: 3,
