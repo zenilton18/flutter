@@ -1,3 +1,4 @@
+import 'package:app_1/src/config/app_data.dart';
 import 'package:app_1/src/config/items_carrinho.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +20,12 @@ class CardTile extends StatelessWidget {
         ),
 
         //titulo
+        title: Text(
+          cartItem.item.imgUrl,
+          style: const TextStyle(
+            fontWeight: FontWeight.w500,
+          ),
+        ),
 
         //total
 
