@@ -1,4 +1,5 @@
 import 'package:app_1/src/config/custom_colors.dart';
+import 'package:app_1/src/pages/carrinho/componentes/card.dart';
 import 'package:app_1/src/services/utils_services.dart';
 import 'package:flutter/material.dart';
 import 'package:app_1/src/config/app_data.dart' as carrinho;
@@ -21,7 +22,7 @@ class Carrinho extends StatelessWidget {
             child: ListView.builder(
               itemCount: carrinho.itemscarrinho.length,
               itemBuilder: (_, index) {
-                return Text(carrinho.itemscarrinho[index].item.itemName);
+                return CardTile(cartItem: carrinho.itemscarrinho[index]);
               },
             ),
           ),
