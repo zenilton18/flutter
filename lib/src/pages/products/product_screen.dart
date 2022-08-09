@@ -5,11 +5,19 @@ import 'package:flutter/material.dart';
 
 import '../../models/item_model.dart';
 
-class ProductScreen extends StatelessWidget {
+class ProductScreen extends StatefulWidget {
   ProductScreen({Key? key, required this.items}) : super(key: key);
 
   final ItemModel items;
+
+  @override
+  State<ProductScreen> createState() => _ProductScreenState();
+}
+
+class _ProductScreenState extends State<ProductScreen> {
   final UtilsServices utilsServices = UtilsServices();
+
+  int cartItemQuantity = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +29,9 @@ class ProductScreen extends StatelessWidget {
             children: [
               //imagem
               Hero(
-                tag: items.imgUrl,
+                tag: widget.items.imgUrl,
                 child: Expanded(
-                  child: Image.asset(items.imgUrl),
+                  child: Image.asset(widget.items.imgUrl),
                 ),
               ),
               Expanded(
@@ -49,7 +57,7 @@ class ProductScreen extends StatelessWidget {
                         children: [
                           Expanded(
                             child: Text(
-                              items.itemName,
+                              widget.items.itemName,
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                               style: const TextStyle(
@@ -59,15 +67,20 @@ class ProductScreen extends StatelessWidget {
                             ),
                           ),
                           QuantityWidget(
-                            value: 3,
-                            tipo: items.unit,
+                            value: cartItemQuantity,
+                            tipo: widget.items.unit,
+                            resultado: (quantidade) {
+                              setState(() {
+                                cartItemQuantity = quantidade;
+                              });
+                            },
                           ),
                         ],
                       ),
 
                       //preço
                       Text(
-                        utilsServices.princeToCurrency(items.price),
+                        utilsServices.princeToCurrency(widget.items.price),
                         style: TextStyle(
                             fontSize: 23,
                             fontWeight: FontWeight.bold,
@@ -81,7 +94,7 @@ class ProductScreen extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(vertical: 10),
                           child: SingleChildScrollView(
                             child: Text(
-                              items.description * 10,
+                              widget.items.description * 10,
                               style: const TextStyle(
                                 height: 1.5,
                               ),

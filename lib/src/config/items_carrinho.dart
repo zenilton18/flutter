@@ -4,5 +4,12 @@ class ItemCarrinho {
   ItemModel item;
   int quantidade;
 
-  ItemCarrinho({required this.item, required this.quantidade});
+  ItemCarrinho({
+    required this.item,
+    required this.quantidade,
+  });
+
+  double  totalprice() {
+   return  item.price * quantidade;
+  }
 }

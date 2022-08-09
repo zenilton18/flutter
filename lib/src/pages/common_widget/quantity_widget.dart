@@ -4,9 +4,17 @@ import 'package:flutter/material.dart';
 class QuantityWidget extends StatelessWidget {
   final int value;
   final String tipo;
+  final Function(int quantidade) resultado;
 
-  const QuantityWidget({Key? key, required this.tipo, required this.value})
-      : super(key: key);
+  final bool remover;
+
+  const QuantityWidget({
+    Key? key,
+    required this.tipo,
+    required this.value,
+    required this.resultado,
+    this.remover = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +34,14 @@ class QuantityWidget extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          _QuantityWidget(
+          _QuantityButton(
             color: Colors.grey,
-            icon: Icons.remove,
-            voidCallback: () {},
+            icon: !remover ? Icons.remove : Icons.delete_forever,
+            voidCallback: () {
+              if (value == 1) return;
+              int count = value - 1;
+              resultado(count);
+            },
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 6),
@@ -38,10 +50,13 @@ class QuantityWidget extends StatelessWidget {
               style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
             ),
           ),
-          _QuantityWidget(
+          _QuantityButton(
             color: Customcolors.customSwatchColor,
             icon: Icons.add,
-            voidCallback: () {},
+            voidCallback: () {
+              int count = value + 1;
+              resultado(count);
+            },
           ),
         ],
       ),
@@ -49,11 +64,11 @@ class QuantityWidget extends StatelessWidget {
   }
 }
 
-class _QuantityWidget extends StatelessWidget {
+class _QuantityButton extends StatelessWidget {
   final Color color;
   final IconData icon;
   final VoidCallback voidCallback;
-  const _QuantityWidget(
+  const _QuantityButton(
       {Key? key,
       required this.color,
       required this.icon,
