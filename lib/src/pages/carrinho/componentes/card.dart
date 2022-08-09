@@ -1,5 +1,6 @@
 import 'package:app_1/src/config/app_data.dart';
 import 'package:app_1/src/config/items_carrinho.dart';
+import 'package:app_1/src/pages/common_widget/quantity_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../../models/item_model.dart';
@@ -21,7 +22,7 @@ class CardTile extends StatelessWidget {
 
         //titulo
         title: Text(
-          cartItem.item.imgUrl,
+          cartItem.item.itemName,
           style: const TextStyle(
             fontWeight: FontWeight.w500,
           ),
@@ -30,6 +31,10 @@ class CardTile extends StatelessWidget {
         //total
 
         //quantidade
+        trailing: QuantityWidget(
+          tipo: cartItem.item.unit,
+          value: cartItem.quantidade,
+        ),
       ),
     );
   }

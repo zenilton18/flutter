@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class QuantityWidget extends StatelessWidget {
   final int value;
   final String tipo;
+
   const QuantityWidget({Key? key, required this.tipo, required this.value})
       : super(key: key);
 
@@ -23,6 +24,7 @@ class QuantityWidget extends StatelessWidget {
         ],
       ),
       child: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
           _QuantityWidget(
             color: Colors.grey,
