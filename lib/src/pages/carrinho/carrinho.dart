@@ -1,13 +1,25 @@
 import 'package:app_1/src/config/custom_colors.dart';
+import 'package:app_1/src/config/items_carrinho.dart';
 import 'package:app_1/src/pages/carrinho/componentes/card.dart';
 import 'package:app_1/src/services/utils_services.dart';
 import 'package:flutter/material.dart';
 import 'package:app_1/src/config/app_data.dart' as carrinho;
 
-class Carrinho extends StatelessWidget {
-  Carrinho({Key? key}) : super(key: key);
+class Carrinho extends StatefulWidget {
+  const Carrinho({Key? key}) : super(key: key);
 
+  @override
+  State<Carrinho> createState() => _CarrinhoState();
+}
+
+class _CarrinhoState extends State<Carrinho> {
   final UtilsServices utilsServices = UtilsServices();
+
+  void removerItem(ItemCarrinho cartItem) {
+    setState(() {
+      carrinho.itemscarrinho.remove(carrinho.items);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +34,8 @@ class Carrinho extends StatelessWidget {
             child: ListView.builder(
               itemCount: carrinho.itemscarrinho.length,
               itemBuilder: (_, index) {
-                return CardTile(cartItem: carrinho.itemscarrinho[index]);
+                return CardTile(cartItem: carrinho.itemscarrinho[index],
+                remove:removerItem);
               },
             ),
           ),

@@ -62,7 +62,7 @@ List<String> categorias = [
 ];
 
 List<ItemCarrinho> itemscarrinho = [
-  ItemCarrinho(item: aplle, quantidade: 2),
+  ItemCarrinho(item: aplle, quantidade: 1),
   ItemCarrinho(item: grape, quantidade: 2),
-  ItemCarrinho(item: guava, quantidade: 2),
+  ItemCarrinho(item: guava, quantidade: 3),
 ];

@@ -1,4 +1,3 @@
-import 'package:app_1/src/config/app_data.dart';
 import 'package:app_1/src/config/custom_colors.dart';
 import 'package:app_1/src/config/items_carrinho.dart';
 import 'package:app_1/src/pages/common_widget/quantity_widget.dart';
@@ -7,10 +6,17 @@ import 'package:flutter/material.dart';
 
 import '../../../models/item_model.dart';
 
-class CardTile extends StatelessWidget {
+class CardTile extends StatefulWidget {
   final ItemCarrinho cartItem;
-  CardTile({Key? key, required this.cartItem}) : super(key: key);
+  final Function(ItemModel) remove;
+  const CardTile({Key? key, required this.cartItem, required this.remove})
+      : super(key: key);
 
+  @override
+  State<CardTile> createState() => _CardTileState();
+}
+
+class _CardTileState extends State<CardTile> {
   final UtilsServices utilsServices = UtilsServices();
 
   @override
@@ -21,14 +27,14 @@ class CardTile extends StatelessWidget {
       child: ListTile(
         //imagem
         leading: Image.asset(
-          cartItem.item.imgUrl,
+          widget.cartItem.item.imgUrl,
           height: 60,
           width: 60,
         ),
 
         //titulo
         title: Text(
-          cartItem.item.itemName,
+          widget.cartItem.item.itemName,
           style: const TextStyle(
             fontWeight: FontWeight.w500,
           ),
@@ -36,7 +42,7 @@ class CardTile extends StatelessWidget {
 
         //total
         subtitle: Text(
-          utilsServices.princeToCurrency(cartItem.totalprice()),
+          utilsServices.princeToCurrency(widget.cartItem.totalprice()),
           style: TextStyle(
               color: Customcolors.customSwatchColor,
               fontWeight: FontWeight.bold),
@@ -44,9 +50,16 @@ class CardTile extends StatelessWidget {
 
         //quantidade
         trailing: QuantityWidget(
-          tipo: cartItem.item.unit,
-          value: cartItem.quantidade,
-          resultado: (quati) {},
+          tipo: widget.cartItem.item.unit,
+          value: widget.cartItem.quantidade,
+          resultado: (quati) {
+            setState(() {
+              widget.cartItem.quantidade = quati;
+              if (quati == 0) {
+                widget.remove(widget.cartItem);
+              }
+            });
+          },
           remover: true,
         ),
       ),
