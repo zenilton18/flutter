@@ -88,7 +88,10 @@ class _CarrinhoState extends State<Carrinho> {
                         borderRadius: BorderRadius.circular(30),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () async {
+                      bool? resut = await dialago();
+                      print(resut);
+                    },
                     child: const Text(
                       'Realizar Pedido',
                       style: TextStyle(
@@ -102,6 +105,40 @@ class _CarrinhoState extends State<Carrinho> {
           ),
         ],
       ),
+    );
+  }
+
+  Future<bool?> dialago() {
+    return showDialog<bool>(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          title: const Text('Comfirmação'),
+          content: const Text('Deseja realmente concluir pedido'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(false);
+              },
+              child: const Text('Não'),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+              onPressed: () {
+                Navigator.of(context).pop(true);
+              },
+              child: const Text('Sim'),
+            ),
+          ],
+        );
+      },
     );
   }
 }
