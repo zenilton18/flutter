@@ -1,4 +1,5 @@
 import 'package:app_1/src/pages/carrinho/carrinho.dart';
+import 'package:app_1/src/pages/profile/perfil.dart';
 import 'package:flutter/material.dart';
 
 import '../home/home_tab.dart';
@@ -22,9 +23,9 @@ class _BaseScreenState extends State<BaseScreen> {
         controller: pageController,
         children: [
           const HomeTab(),
-          Carrinho(),
+          const  Carrinho(),
           Container(color: Colors.yellow),
-          Container(color: Colors.grey),
+          Perfil(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

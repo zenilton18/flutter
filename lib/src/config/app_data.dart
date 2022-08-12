@@ -1,5 +1,6 @@
 import 'package:app_1/src/config/items_carrinho.dart';
 import 'package:app_1/src/models/item_model.dart';
+import 'package:app_1/src/models/usuario.dart';
 
 ItemModel aplle = ItemModel(
   itemName: 'maça',
@@ -66,3 +67,10 @@ List<ItemCarrinho> itemscarrinho = [
   ItemCarrinho(item: grape, quantidade: 2),
   ItemCarrinho(item: guava, quantidade: 3),
 ];
+
+usuario user = usuario(
+    nome: 'nomeçççççççççççç',
+    email: 'emailssssssss',
+    celular: 'celularsssssssssss',
+    cpf: 'cpfssssss',
+    senha: 'senhasssssssssss');

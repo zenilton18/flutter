@@ -4,7 +4,7 @@ import 'package:app_1/src/config/custom_colors.dart';
 import 'package:flutter/material.dart';
 import '../auth/sing_up_screen.dart';
 import '../base/base_screen.dart';
-import 'components/custom_text_field.dart';
+import '../common_widget/custom_text_field.dart';
 
 class SingInScreen extends StatelessWidget {
   const SingInScreen({Key? key}) : super(key: key);
