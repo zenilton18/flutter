@@ -8,7 +8,7 @@ import '../../../models/item_model.dart';
 
 class CardTile extends StatefulWidget {
   final ItemCarrinho cartItem;
-  final Function(ItemModel) remove;
+  final Function(ItemCarrinho) remove;
   const CardTile({Key? key, required this.cartItem, required this.remove})
       : super(key: key);
 
@@ -55,7 +55,9 @@ class _CardTileState extends State<CardTile> {
           resultado: (quati) {
             setState(() {
               widget.cartItem.quantidade = quati;
+              
               if (quati == 0) {
+                print(quati);
                 widget.remove(widget.cartItem);
               }
             });

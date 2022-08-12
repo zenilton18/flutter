@@ -1,5 +1,6 @@
 import 'package:app_1/src/config/custom_colors.dart';
 import 'package:app_1/src/config/items_carrinho.dart';
+import 'package:app_1/src/models/item_model.dart';
 import 'package:app_1/src/pages/carrinho/componentes/card.dart';
 import 'package:app_1/src/services/utils_services.dart';
 import 'package:flutter/material.dart';
@@ -17,8 +18,16 @@ class _CarrinhoState extends State<Carrinho> {
 
   void removerItem(ItemCarrinho cartItem) {
     setState(() {
-      carrinho.itemscarrinho.remove(carrinho.items);
+      carrinho.itemscarrinho.remove(cartItem);
     });
+  }
+
+  double carrinhoTotal() {
+    double total = 0;
+    for (var item in carrinho.itemscarrinho) {
+      total += item.totalprice();
+    }
+    return total;
   }
 
   @override
@@ -34,8 +43,9 @@ class _CarrinhoState extends State<Carrinho> {
             child: ListView.builder(
               itemCount: carrinho.itemscarrinho.length,
               itemBuilder: (_, index) {
-                return CardTile(cartItem: carrinho.itemscarrinho[index],
-                remove:removerItem);
+                return CardTile(
+                    cartItem: carrinho.itemscarrinho[index],
+                    remove: removerItem);
               },
             ),
           ),
@@ -65,7 +75,7 @@ class _CarrinhoState extends State<Carrinho> {
                   ),
                 ),
                 Text(
-                  utilsServices.princeToCurrency(50.4),
+                  utilsServices.princeToCurrency(carrinhoTotal()),
                   style: TextStyle(
                       fontSize: 26, color: Customcolors.customSwatchColor),
                 ),
