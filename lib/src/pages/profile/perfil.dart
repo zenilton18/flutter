@@ -2,7 +2,7 @@ import 'package:app_1/src/pages/common_widget/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:app_1/src/config/app_data.dart' as appdatag;
+import 'package:app_1/src/config/app_data.dart' as appdata;
 
 class Perfil extends StatelessWidget {
   const Perfil({Key? key}) : super(key: key);
@@ -22,16 +22,43 @@ class Perfil extends StatelessWidget {
       body: ListView(
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.fromLTRB(16, 32, 16, 16),
-        children: const [
-          CustumTextField(icon: Icons.email, label: 'Email'),
-          CustumTextField(icon: Icons.person, label: 'Nome'),
-          CustumTextField(icon: Icons.phone, label: 'Celular'),
+        children: [
           CustumTextField(
+              ler: true,
+              valorinicial: appdata.user.email,
+              icon: Icons.email,
+              label: 'appdata.user.celular'),
+          CustumTextField(
+              ler: true,
+              valorinicial: appdata.user.nome,
+              icon: Icons.person,
+              label: 'Nome'),
+          CustumTextField(
+              ler: true,
+              valorinicial: appdata.user.celular,
+              icon: Icons.phone,
+              label: 'Celular'),
+          CustumTextField(
+            ler: true,
+            valorinicial: appdata.user.cpf,
             icon: Icons.file_copy,
             label: 'CPF',
             isSecret: true,
           ),
-          CustumTextField(icon: Icons.email, label: 'Email'),
+          //atualizar senha
+          SizedBox(
+              height: 50,
+              child: OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                    side: const BorderSide(
+                      color: Colors.green,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  ),
+                  onPressed: () {},
+                  child: const Text('Atualizar Senha')))
         ],
       ),
     );
